@@ -4,7 +4,7 @@ package calcula.frete.api.model;
 import lombok.*;
 
 import java.util.Objects;
-//Classe que guarda os dados vindos do ViaCep
+//Classe que guarda os dados e define a região de cada cep vindos do ViaCep
 @Getter
 @Setter
 @ToString

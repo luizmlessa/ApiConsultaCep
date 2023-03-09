@@ -9,11 +9,12 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.client.RestTemplate;
 
-//Classe controller que faz a requisicão e devoluçao dos dados
+//Classe controller que recebe a requisicão POST e faz a correção e a devoluçao dos dados
 @RestController
 @RequestMapping("v1")
 public class EnderecoController {
 
+    // Compara e sobrescreve os campos da classe Endereço, dados esses que vem do retorno da requisição a api Via Cep
     private EnderecoResultDTO convertEndereco(Endereco endereco) {
         EnderecoResultDTO enderecoResultDTO = new EnderecoResultDTO();
         enderecoResultDTO.setCep(endereco.getCep());
@@ -25,7 +26,7 @@ public class EnderecoController {
         enderecoResultDTO.setFrete(endereco.getFrete());
         return enderecoResultDTO;
     }
-
+    //Faz a requisição pelo cep por post, leva esse cep como parametro para a api viacep e retorna os campos da consulta por um json
     @PostMapping("/consulta-endereco")
     public EnderecoResultDTO retornaCep(@RequestBody RequestCep cep) {
         CepUtils.confereCep(cep.getCep());

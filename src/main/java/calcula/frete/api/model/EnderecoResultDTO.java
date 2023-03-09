@@ -1,6 +1,6 @@
 package calcula.frete.api.model;
 
-//Classe resposável por guardar as informações que vem da requisiçao e tratadas
+//Classe resposável por guardar as informações já tratadas que vem da requisiçao,
 public class EnderecoResultDTO {
 
 

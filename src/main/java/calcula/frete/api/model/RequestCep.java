@@ -4,7 +4,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
-//Classe usada para fazer a requisião do cep e guarda ele
+//Classe usada para guardar o cep
 @Getter @Setter
 @NoArgsConstructor
 

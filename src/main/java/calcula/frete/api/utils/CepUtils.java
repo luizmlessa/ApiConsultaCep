@@ -6,7 +6,7 @@ import calcula.frete.api.exception.ViaCepFormatException;
 
 
 import java.util.Objects;
-//Classe usada para conferir o cep
+//Classe usada usada para coferir o cep, confere se ele está vazio, null ou blank, ela também remove o hifen do cep e confere se o hifen foi retirado
 public class CepUtils {
 
     public static void confereCep(String cep){
