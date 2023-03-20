@@ -27,8 +27,6 @@ public class EnderecoResultDTO {
     }
 
 
-
-
     public String getCep() {
         return cep;
     }
