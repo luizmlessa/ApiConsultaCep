@@ -3,8 +3,7 @@ package calcula.frete.api.controller;
 
 import calcula.frete.api.model.Endereco;
 import calcula.frete.api.model.EnderecoResultDTO;
-import calcula.frete.api.model.RequestCep;
-import calcula.frete.api.utils.CepUtils;
+import calcula.frete.api.utils.ValidaCep;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.client.RestTemplate;
@@ -28,8 +27,8 @@ public class EnderecoController {
     }
     //Faz a requisição pelo cep por post, leva esse cep como parametro para a api viacep e retorna os campos da consulta por um json
     @PostMapping("/consulta-endereco")
-    public EnderecoResultDTO retornaCep(@RequestBody RequestCep cep) {
-        CepUtils.confereCep(cep.getCep());
+    public EnderecoResultDTO retornaCep(@RequestBody Endereco cep) {
+        ValidaCep.confereCep(cep.getCep());
         RestTemplate restTemplate = new RestTemplate();
         ResponseEntity<Endereco> response = restTemplate.getForEntity(String.format("https://viacep.com.br/ws/" + cep.getCep() + "/json"), Endereco.class);
         if (response != null && response.getBody() != null) {
